@@ -1,8 +1,6 @@
 
-/*
-To login administrator
 
- */
+//To login administrator
 var uuid = require ('uuid');
 
 const db = require('../utils/database');
