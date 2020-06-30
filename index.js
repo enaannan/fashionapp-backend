@@ -13,7 +13,12 @@ const app =express();
 const adminRoutes = require('./routes/admin');
 const userRoutes=require('./routes/user');
 
-
+app.listen(process.env.PORT);
+// let port = process.env.PORT;
+// if (port == null || port == "") {
+//   port = 8000;
+// }
+// app.listen(port);
 // const port = process.env.PORT || 3000;
 
 
@@ -30,8 +35,3 @@ app.use('/user',userRoutes);
 // app.listen(port,()=>{
 //     console.log('Server started on port 3000...');
 // });
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
