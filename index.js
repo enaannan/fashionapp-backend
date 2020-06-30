@@ -25,7 +25,9 @@ app.listen(process.env.PORT);
 
 // parse application using json
 app.use(bodyparse.json());
-
+app.use('/',()=>{
+    console.log("start here");
+})
 
 app.use('/admin',adminRoutes);
 
