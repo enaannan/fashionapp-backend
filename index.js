@@ -14,7 +14,7 @@ const adminRoutes = require('./routes/admin');
 const userRoutes=require('./routes/user');
 
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 
 
@@ -27,6 +27,11 @@ app.use('/admin',adminRoutes);
 app.use('/user',userRoutes);
 
 //server listening
-app.listen(port,()=>{
-    console.log('Server started on port 3000...');
-});
+// app.listen(port,()=>{
+//     console.log('Server started on port 3000...');
+// });
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
