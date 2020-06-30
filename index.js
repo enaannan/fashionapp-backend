@@ -28,7 +28,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyparse.json());
 //multer
 
-// app.use(multer({dest:'images'}).single('image'));
+
 
 
 app.use('/admin',adminRoutes);
