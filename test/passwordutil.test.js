@@ -11,7 +11,7 @@ assert.equal(result,5);
 })
 
 
-it('should return zero',()=>{
+it('should return zero fro null input',()=>{
 
     var rand=passwordUtil.genRand(null);
     var result =rand.length;
