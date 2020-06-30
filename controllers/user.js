@@ -18,8 +18,7 @@ exports.login=(req,res,next)=>{
         db.on('error', function (err) {
             console.log('[MySQL ERROR]', err);
         });
-console.log(email);
-console.log(result);
+
         if(result && result.length)
         {
 
@@ -37,6 +36,8 @@ console.log(result);
             res.json('User does not exist!!!!');
         }
     });
+
+
 }
 
 /*

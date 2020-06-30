@@ -23,23 +23,23 @@ exports.login = (req,res,next)=>{
             console.log('[MySQL ERROR]', err);
         });
         
-        res.end(JSON.stringify(result[0]));
+      
         
         if(result && result.length)
         {
-
+                    
             var salt = result[0].salt;// Get salt of result if account exists
             var encrypted_password =  result[0].encrypted_password;
             //Hash password from Login request with salt in Database
             var hashed_password = passwordUtil.checkHashedPassword(user_password,salt).passwordHash;
             if(encrypted_password == hashed_password)
-                res.end(JSON.stringify(result[0]))//If password is true,return all info of user
+                res.end(JSON.stringify(result[0]));//If password is true,return all info of user
             else
                 res.end(JSON.stringify('Wrong password'));
         }
         else
         {
-            res.json('User does not exist!!!!');
+            res.end(JSON.stringify('User does not exist!!!!'));
         }
     })
 }
@@ -108,11 +108,18 @@ exports.update= (req,res)=>{
 
 //add new crochetproduct
 exports.addcrochet= (req,res)=>{
+    var uid = uuid.v4();//Get UUID v4
+        var imagepath=req.file.path;
+        
+
+        
+
+
     let data = {
         name: req.body.product_name,
-        unique_id: req.body.unique_id,
+         unique_id: uid,
         price: req.body.product_price, 
-        image: req.body.product_image_path,
+        image: imagepath,
         quantity:req.body.product_quantity};
     
     let sql ="INSERT INTO crochet_products SET ?";
