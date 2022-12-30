@@ -19,7 +19,7 @@
     "uuid": "^8.2.0"
   },
   "devDependencies": {
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0"
   }
